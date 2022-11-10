@@ -3,7 +3,6 @@ import Image from 'next/image'
 import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
 import styles from '../styles/Home.module.css'
 import axios from "axios";
-import { SECRET_API_KEY } from "../config"
 import { useState, useEffect } from 'react';
 
 export default function Home() {
@@ -16,6 +15,8 @@ export default function Home() {
   const [nftOwner, setNftOwner] = useState();
   const [nftDescription, setNftDescription] = useState();
 
+
+  console.log( process.env.NEXT_PUBLIC_API_KEY);
   const data = async (event) => {
     const options = {
       method: 'GET',
@@ -25,12 +26,15 @@ export default function Home() {
       },
       headers: {
         'Content-Type': 'application/json',
-        Authorization: SECRET_API_KEY
+        Authorization: process.env.NEXT_PUBLIC_API_KEY
       }
     };
-    let data
+
+    //data -> stores the response data
+    let data;
     await axios.request(options)
-    .then(function (response) {
+    .then( (response) =>  {
+      console.log(response, "uhfdsif");
       try {
       data = response.data
       setNftTitle(data.contract.name)
@@ -85,6 +89,7 @@ export default function Home() {
               alt="NFT-Image"
             />
           </div>
+          
 
           <div className="card-body">
             <form>
