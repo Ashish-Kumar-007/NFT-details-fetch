@@ -15,8 +15,6 @@ export default function Home() {
   const [nftOwner, setNftOwner] = useState();
   const [nftDescription, setNftDescription] = useState();
 
-
-  console.log( process.env.NEXT_PUBLIC_API_KEY);
   const data = async (event) => {
     const options = {
       method: 'GET',
