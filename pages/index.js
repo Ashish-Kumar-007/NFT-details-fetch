@@ -28,6 +28,9 @@ export default function Home() {
       }
     };
 
+    console.log('====================================');
+    console.log(options);
+    console.log('====================================');
     //data -> stores the response data
     let data;
     await axios.request(options)
