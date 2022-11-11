@@ -28,9 +28,7 @@ export default function Home() {
       }
     };
 
-    console.log('====================================');
-    console.log(process.env.NEXT_PUBLIC_API_KEY);
-    console.log('====================================');
+
     //data -> stores the response data
     let data;
     await axios.request(options)
