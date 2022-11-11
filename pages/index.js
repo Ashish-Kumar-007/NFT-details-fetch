@@ -33,7 +33,6 @@ export default function Home() {
     let data;
     await axios.request(options)
     .then( (response) =>  {
-      console.log(response, "uhfdsif");
       try {
       data = response.data
       setNftTitle(data.contract.name)
